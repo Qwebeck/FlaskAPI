@@ -1,7 +1,24 @@
-from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+# from flask import Flask, request, jsonify
+# from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import threading
+
+try:
+    flask = __import__('flask')
+except ImportError:
+    subprocess.check_call("pip install flask")
+    flask = __import__('flask')
+
+try:
+    flask_sqlalchemy = __import__('flask_sqlalchemy')
+except ImportError:
+    subprocess.check_call("pip install flask_sqlalchemy")
+    flask_sqlalchemy = __import__('flask_sqlalchemy')
+
+Flask = flask.Flask
+request = flask.request
+jsonify = flask.jsonify
+SQLAlchemy = flask_sqlalchemy.SQLAlchemy
 
 app = Flask(__name__)
 
