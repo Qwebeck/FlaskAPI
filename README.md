@@ -23,6 +23,7 @@ Poniżej opisany skrypt, który pozwala wygondnie kontaktować z serwerew
 
 <h1> Skrypt client.py  </h1>
 Żeby sprawdzić dostępne opcji można wpisać `client.py -h`.
+
 ```
 usage: client.py [-h] [-A ADDONE] [-R] [-D | -d DELETEONE] [-g GETONE | -G]
                  [-o OUTPUT | -a APPEND] [-H HOSTNAME]
@@ -53,7 +54,6 @@ optional arguments:
                         be in format: http://some_address/ If argument not
                         passed - default hostname is http://127.0.0.1:5000/
 ```
-
 
 <h1> Opis opcji </h1>
 
