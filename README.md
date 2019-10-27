@@ -7,44 +7,44 @@ W kodzie użyłem takich bibliotek `requests,flask, flask_sqlalchemy`, dlatego p
 pip install flask flask_sqlalchemy requests
 ```
 
-Po tym należy przejść do folderu,gdzie był pobrany repozytorium i wpisać polecenie, żeby urochomić server. 
+Po tym należy przejść do folderu,gdzie był pobrany repozytorium i wpisać polecenie, żeby uruchomić serwer.
 ```
 python api.py
 ```
 <h1> Testowanie </h1>
 
-Do wygodnego testowania był napisany skrypt `client.py`który, w zależności od podanej opcji wysyła odpowiedni requesty 
-na serwer. 
+Do wygodnego testowania był napisany skrypt `client.py`który, w zależności od podanej opcji wysyła odpowiedni requesty
+na serwer.
 Żeby sprawdzić dostępne opcji można wpisać `client.py -h`.
 ```
 usage: client.py [-h] [-A ADDONE] [-R] [-D | -d DELETEONE] [-g GETONE | -G]
-                 [-o OUTPUT | -a APPEND] [-H HOSTNAME]
+                 [-o OUTPUT | -a APPEND] [-H HOSTNAME]
 
 Wrapper to works with api from command line
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -A ADDONE, --addOne ADDONE
-                        Command in format: -a FILENAME Add's all test examples
-                        from file
-  -R, --readable        If passed, convert timestamps from server output to
-                        human-readable format
-  -D, --deleteAll       Delete all records from database
-  -d DELETEONE, --deleteOne DELETEONE
-                        Command in format: -d TEST_ID Delete test with
-                        specific id from server
-  -g GETONE, --getOne GETONE
-                        Command in format: -g TEST_ID Return test with
-                        specific id
-  -G, --getAll          Return all data from the server
-  -o OUTPUT, --output OUTPUT
-                        Command in format: -o FILENAME File to store output
-  -a APPEND, --append APPEND
-                        If given -- append data from server to existing file
-  -H HOSTNAME, --hostname HOSTNAME
-                        Send requests to specified hostname. Hostname should
-                        be in format: http://some_address/ If argument not
-                        passed - default hostname is http://127.0.0.1:5000/
+  -h, --help            show this help message and exit
+  -A ADDONE, --addOne ADDONE
+                        Command in format: -a FILENAME Add's all test examples
+                        from file
+  -R, --readable        If passed, convert timestamps from server output to
+                        human-readable format
+  -D, --deleteAll       Delete all records from database
+  -d DELETEONE, --deleteOne DELETEONE
+                        Command in format: -d TEST_ID Delete test with
+                        specific id from server
+  -g GETONE, --getOne GETONE
+                        Command in format: -g TEST_ID Return test with
+                        specific id
+  -G, --getAll          Return all data from the server
+  -o OUTPUT, --output OUTPUT
+                        Command in format: -o FILENAME File to store output
+  -a APPEND, --append APPEND
+                        If given -- append data from server to existing file
+  -H HOSTNAME, --hostname HOSTNAME
+                        Send requests to specified hostname. Hostname should
+                        be in format: http://some_address/ If argument not
+                        passed - default hostname is http://127.0.0.1:5000/
 ```
 
 <h1> Dostępne opcji </h1>
@@ -53,9 +53,9 @@ optional arguments:
 musi mieścić sekcję `data`
 ```
 "data":[
-  {
-      .....
-  }
+  {
+      .....
+  }
 ]
 ```
 Przykład:
@@ -65,51 +65,51 @@ Success !
 ```
 
 - `-R, --readable ` -- konwertuje dane z serwera w wygodny dla człowieka format. Motywacja: dane na serwerze są przechowywane w formacie `timestamp`,
-co jest wygodnie w prypadku jezeli z danymi potrzeba będzie pracować dalej, jednak nie wygodnie w przypadku jeżeli z danymi będzie pracował człowiek.
-*Może być użyta tylko z opcją pobierającą dane z serwera 
+co jest wygodnie w przypadku jeżeli z danymi potrzeba będzie pracować dalej, jednak nie wygodnie w przypadku jeżeli z danymi będzie pracował człowiek.
+*Może być użyta tylko z opcją pobierającą dane z serwera
 Przykład:
 ```
-login@hostname:~path/$ python client.py -g 1 -R 
+login@hostname:~path/$ python client.py -g 1 -R
 
-      "timestamp": 1970-01-01 07:00:00, 
-      "value": 1615789
-    
-The data was added to the file:  data_from_server22_14_34_26.json
+      "timestamp": 1970-01-01 07:00:00,
+      "value": 1615789
+    
+The data was added to the file:  data_from_server22_14_34_26.json
 login@hostname:~path/$ cat data_from_server22_14_34_26.json
 {
-    "data": [
-        {
-            "timestamp": "1970-01-01 07:00:00",
-            "value": 1615789
-        }
-    ]
+    "data": [
+        {
+            "timestamp": "1970-01-01 07:00:00",
+            "value": 1615789
+        }
+    ]
 }
-   
-login@hostname:~path/$ python client.py -g 1 
-The data was added to the file:  data_from_server22_15_58_26.json
-login@hostname:~path/$ cat data_from_server22_15_58_26.json 
+   
+login@hostname:~path/$ python client.py -g 1
+The data was added to the file:  data_from_server22_15_58_26.json
+login@hostname:~path/$ cat data_from_server22_15_58_26.json
 {
-    "data": [
-        {
-            "timestamp": 21600,
-            "value": 1615789
-        }
-    ]
+    "data": [
+        {
+            "timestamp": 21600,
+            "value": 1615789
+        }
+    ]
 }
-   
- ```
-  - `-g GETONE, --getOne GETONE`  -- pobiera jeden rekord z bazy danych i zapisuje go do pliku. Pzykład był podany wyżej.
- 
- - `-G, --getAll`  -- pobiera wszystkie rekordy z bazy i zapisuje ich do pliku. W przypadku jeżeli plik nie był podany za pomocą opcji `-a` lub `-o` -- tworzy nowy plik 
- w formacie `data_from_serverHH_MM_SS_DD.json`
- Przykład:
- ```
+   
+ ```
+  - `-g GETONE, --getOne GETONE`  -- pobiera jeden rekord z bazy danych i zapisuje go do pliku. Przykład był podany wyżej.
+ 
+ - `-G, --getAll`  -- pobiera wszystkie rekordy z bazy i zapisuje ich do pliku. W przypadku jeżeli plik nie był podany za pomocą opcji `-a` lub `-o` -- tworzy nowy plik
+ w formacie `data_from_serverHH_MM_SS_DD.json`
+ Przykład:
+ ```
 login@hostname:~path/$ python client.py -G
 Success!
-The data was added to the file:  data_from_server22_23_08_26.json
+The data was added to the file:  data_from_server22_23_08_26.json
 
- ```
- 
+ ```
+ 
 - `-d DELETEONE` -- usuwa jeden rekord o podanym numerze id
 Przykład:
 ```
@@ -118,51 +118,51 @@ The test has been deleted !
 
 ```
 
- 
- - `-D, --deleteAll`  -- usuwa wszystkie rekordy z tabeli
- 
- Przykład 
- ```
+ 
+ - `-D, --deleteAll`  -- usuwa wszystkie rekordy z tabeli
+ 
+ Przykład
+ ```
 login@hostname:~path/$ python client.py -D
 Table has been deleted !
- ```
+ ```
 
- - `-o OUTPUT, --output OUTPUT`  -- pozwala podać nazwę pliku do którego będą zapisane dane. *Uwaga!* - żeby nadpisać dane do pliku należy użyć opcji ` -a`.
- Przykład:
- ```
+ - `-o OUTPUT, --output OUTPUT`  -- pozwala podać nazwę pliku do którego będą zapisane dane. *Uwaga!* - żeby nadpisać dane do pliku należy użyć opcji ` -a`.
+ Przykład:
+ ```
 login@hostname:~path/$ python client.py -g 2 -o output.json
 No file found!
- Creating a new one with name  output.json
-The data was added to the file:  output.json
-login@hostname:~path/$ cat output.json 
+ Creating a new one with name  output.json
+The data was added to the file:  output.json
+login@hostname:~path/$ cat output.json
 {
-    "data": [
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        }
-    ]
+    "data": [
+        {
+            "timestamp": 24600,
+            "value": 1616204
+        }
+    ]
 }
- ```
- 
- - `-a APPEND, --append APPEND`  -- nadpisuje dane do już istniającego pliku.
- Przykład. Plik `output.json` był utworzony w poprzednim przykładzie:
- ```
+ ```
+ 
+ - `-a APPEND, --append APPEND`  -- nadpisuje dane do już istniejącego pliku.
+ Przykład. Plik `output.json` był utworzony w poprzednim przykładzie:
+ ```
 login@hostname:~path/$ python client.py -g 2 -a output.json
-The data was added to the file:  output.json
+The data was added to the file:  output.json
 
-login@hostname:~path/$ cat output.json 
+login@hostname:~path/$ cat output.json
 {
-    "data": [
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        },
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        }
-    ]
+    "data": [
+        {
+            "timestamp": 24600,
+            "value": 1616204
+        },
+        {
+            "timestamp": 24600,
+            "value": 1616204
+        }
+    ]
 }
- ```
- - ` -H HOSTNAME, --hostname HOSTNAME`  --pozwała podać adres na który klient będzie wysylał zadania 
+ ```
+ - ` -H HOSTNAME, --hostname HOSTNAME`  --pozwała podać adres na który klient będzie wysyłał zadania
