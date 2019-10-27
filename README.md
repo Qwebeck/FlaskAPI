@@ -16,13 +16,13 @@ python api.py
 - `/getAll` - zwraca wszyskite elementy z bd
 - `/getOne/:<id>` - zwraca element o podanym id
 - `/deleteOne/:<id>` - usuwa jeden element
-- `/drop/` - usuwa tabelę
+- `/drop` - usuwa tabelę
 - `/addOne/` - dodaje zawartość do tabeli. 
 
 Poniżej opisany skrypt, który pozwala wygondnie kontaktować z serwerew
 
 <h1> Skrypt client.py  </h1>
-Żeby sprawdzić dostępne opcji można wpisać `client.py -h`.
+Żeby sprawdzić dostępne opcji można wpisać client.py -h.
 
 ```
 usage: client.py [-h] [-A ADDONE] [-R] [-D | -d DELETEONE] [-g GETONE | -G]
