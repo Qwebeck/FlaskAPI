@@ -3,6 +3,7 @@
 Repozytorium mieści samo API oraz aplikację kliencką, która pozwala wygodnie przetestować jego działanie.
 <h1>Początek pracy</h1>
 W kodzie użyłem takich bibliotek `requests,flask, flask_sqlalchemy`, dlatego przed rozpoczęciem testowania API, należy je zainstalować:
+
 ```
 pip install flask flask_sqlalchemy requests
 ```
