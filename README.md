@@ -13,7 +13,7 @@ python api.py
 ```
 <h1> Testowanie </h1>
 
-Do wygodnego testowania był napisany skrypt `client.py`który, w zależności od podanej opcji wysyła odpowiedni requesty
+Do wygodnego testowania był napisany skrypt `client.py` który, w zależności od podanej opcji wysyła odpowiedni requesty
 na serwer.
 Żeby sprawdzić dostępne opcji można wpisać `client.py -h`.
 ```
@@ -47,10 +47,12 @@ optional arguments:
                         passed - default hostname is http://127.0.0.1:5000/
 ```
 
-<h1> Dostępne opcji </h1>
+
+<h1> Opis opcji </h1>
 
 - ` -A ADDONE, --addOne ADDONE` -- polecenie dodaje do bazy danych wszystkie dane z pliku, który był podany jako argument. Wymagania do pliku:
 musi mieścić sekcję `data`
+
 ```
 "data":[
   {
@@ -58,7 +60,9 @@ musi mieścić sekcję `data`
   }
 ]
 ```
+
 Przykład:
+
 ```
 login@hostname:~path/$ python client.py -A sample_data.json
 Success !
@@ -66,8 +70,9 @@ Success !
 
 - `-R, --readable ` -- konwertuje dane z serwera w wygodny dla człowieka format. Motywacja: dane na serwerze są przechowywane w formacie `timestamp`,
 co jest wygodnie w przypadku jeżeli z danymi potrzeba będzie pracować dalej, jednak nie wygodnie w przypadku jeżeli z danymi będzie pracował człowiek.
-*Może być użyta tylko z opcją pobierającą dane z serwera
+*Może być użyta tylko z opcją pobierającą dane z serwera*
 Przykład:
+
 ```
 login@hostname:~path/$ python client.py -g 1 -R
 
@@ -98,16 +103,16 @@ login@hostname:~path/$ cat data_from_server22_15_58_26.json
 }
    
  ```
-  - `-g GETONE, --getOne GETONE`  -- pobiera jeden rekord z bazy danych i zapisuje go do pliku. Przykład był podany wyżej.
+ - `-g GETONE, --getOne GETONE`  -- pobiera jeden rekord z bazy danych i zapisuje go do pliku. Przykład był podany wyżej.
  
  - `-G, --getAll`  -- pobiera wszystkie rekordy z bazy i zapisuje ich do pliku. W przypadku jeżeli plik nie był podany za pomocą opcji `-a` lub `-o` -- tworzy nowy plik
  w formacie `data_from_serverHH_MM_SS_DD.json`
  Przykład:
- ```
+ 
+ ```
 login@hostname:~path/$ python client.py -G
 Success!
 The data was added to the file:  data_from_server22_23_08_26.json
-
  ```
  
 - `-d DELETEONE` -- usuwa jeden rekord o podanym numerze id
@@ -115,13 +120,12 @@ Przykład:
 ```
 login@hostname:~path/$python client.py -d 1
 The test has been deleted !
-
 ```
-
  
  - `-D, --deleteAll`  -- usuwa wszystkie rekordy z tabeli
  
  Przykład
+ 
  ```
 login@hostname:~path/$ python client.py -D
 Table has been deleted !
@@ -129,10 +133,10 @@ Table has been deleted !
 
  - `-o OUTPUT, --output OUTPUT`  -- pozwala podać nazwę pliku do którego będą zapisane dane. *Uwaga!* - żeby nadpisać dane do pliku należy użyć opcji ` -a`.
  Przykład:
- ```
+```
 login@hostname:~path/$ python client.py -g 2 -o output.json
 No file found!
- Creating a new one with name  output.json
+Creating a new one with name  output.json
 The data was added to the file:  output.json
 login@hostname:~path/$ cat output.json
 {
@@ -144,13 +148,13 @@ login@hostname:~path/$ cat output.json
     ]
 }
  ```
- 
+ 
  - `-a APPEND, --append APPEND`  -- nadpisuje dane do już istniejącego pliku.
  Przykład. Plik `output.json` był utworzony w poprzednim przykładzie:
- ```
-login@hostname:~path/$ python client.py -g 2 -a output.json
+ 
+ ```
+ login@hostname:~path/$ python client.py -g 2 -a output.json
 The data was added to the file:  output.json
-
 login@hostname:~path/$ cat output.json
 {
     "data": [
@@ -165,4 +169,5 @@ login@hostname:~path/$ cat output.json
     ]
 }
  ```
- - ` -H HOSTNAME, --hostname HOSTNAME`  --pozwała podać adres na który klient będzie wysyłał zadania
+
+- ` -H HOSTNAME, --hostname HOSTNAME`  --pozwała podać adres na który klient będzie wysyłał zadania
