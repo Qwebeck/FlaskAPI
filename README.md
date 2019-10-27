@@ -89,16 +89,6 @@ login@hostname:~path/$ cat data_from_server22_14_34_26.json
         }
     ]
 }  
-login@hostname:~path/$ python client.py -g 1
-The data was added to the file:  data_from_server22_15_58_26.json
-login@hostname:~path/$ cat data_from_server22_15_58_26.json
-{
-    "data": [
-        {
-            "timestamp": 21600,
-            "value": 1615789
-        }
-    ]
-}  
  ```
+ 
  
