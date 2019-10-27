@@ -17,7 +17,7 @@ python api.py
 - `/getOne/:<id>` - zwraca element o podanym id
 - `/deleteOne/:<id>` - usuwa jeden element
 - `/drop` - usuwa tabelę
-- `/addOne/` - dodaje zawartość do tabeli. 
+- `/addOne` - dodaje zawartość do tabeli. 
 
 Poniżej opisany skrypt, który pozwala wygondnie kontaktować z serwerew
 
