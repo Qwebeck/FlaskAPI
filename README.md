@@ -88,8 +88,7 @@ login@hostname:~path/$ cat data_from_server22_14_34_26.json
             "value": 1615789
         }
     ]
-}
-   
+}  
 login@hostname:~path/$ python client.py -g 1
 The data was added to the file:  data_from_server22_15_58_26.json
 login@hostname:~path/$ cat data_from_server22_15_58_26.json
@@ -100,74 +99,6 @@ login@hostname:~path/$ cat data_from_server22_15_58_26.json
             "value": 1615789
         }
     ]
-}
-   
- ```
- - `-g GETONE, --getOne GETONE`  -- pobiera jeden rekord z bazy danych i zapisuje go do pliku. Przykład był podany wyżej.
- 
- - `-G, --getAll`  -- pobiera wszystkie rekordy z bazy i zapisuje ich do pliku. W przypadku jeżeli plik nie był podany za pomocą opcji `-a` lub `-o` -- tworzy nowy plik
- w formacie `data_from_serverHH_MM_SS_DD.json`
- Przykład:
- 
- ```
-login@hostname:~path/$ python client.py -G
-Success!
-The data was added to the file:  data_from_server22_23_08_26.json
+}  
  ```
  
-- `-d DELETEONE` -- usuwa jeden rekord o podanym numerze id
-Przykład:
-```
-login@hostname:~path/$python client.py -d 1
-The test has been deleted !
-```
- 
- - `-D, --deleteAll`  -- usuwa wszystkie rekordy z tabeli
- 
- Przykład
- 
- ```
-login@hostname:~path/$ python client.py -D
-Table has been deleted !
- ```
-
- - `-o OUTPUT, --output OUTPUT`  -- pozwala podać nazwę pliku do którego będą zapisane dane. *Uwaga!* - żeby nadpisać dane do pliku należy użyć opcji ` -a`.
- Przykład:
-```
-login@hostname:~path/$ python client.py -g 2 -o output.json
-No file found!
-Creating a new one with name  output.json
-The data was added to the file:  output.json
-login@hostname:~path/$ cat output.json
-{
-    "data": [
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        }
-    ]
-}
- ```
- 
- - `-a APPEND, --append APPEND`  -- nadpisuje dane do już istniejącego pliku.
- Przykład. Plik `output.json` był utworzony w poprzednim przykładzie:
- 
- ```
- login@hostname:~path/$ python client.py -g 2 -a output.json
-The data was added to the file:  output.json
-login@hostname:~path/$ cat output.json
-{
-    "data": [
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        },
-        {
-            "timestamp": 24600,
-            "value": 1616204
-        }
-    ]
-}
- ```
-
-- ` -H HOSTNAME, --hostname HOSTNAME`  --pozwała podać adres na który klient będzie wysyłał zadania
